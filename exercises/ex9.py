@@ -2,6 +2,7 @@ from typing import List
 import requests
 from bs4 import BeautifulSoup
 from lxml import etree
+import argparse
 
 
 def get_all_passwords() -> List:
@@ -50,4 +51,7 @@ def try_to_find_password(login) -> str:
 
 
 if __name__ == "__main__":
-    try_to_find_password(login=input("Please provide user login: \n"))
+    parser = argparse.ArgumentParser(description='get login argument')
+    parser.add_argument('--login', default="super_admin", help="user login")
+    args = vars(parser.parse_args())
+    try_to_find_password(login=args['login'])
