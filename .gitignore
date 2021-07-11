@@ -2,3 +2,4 @@
 .pytest_cache
 __pycache__/
 pytest_REST/
+day_4/day_4_improvements/logs/*
