@@ -1,5 +1,8 @@
 import requests
 
+from day_4.day_4_improvements.lib.logger import Logger as LG
+
+
 class MyRequests():
     @staticmethod
     def get(url: str, data: dict = None, headers: dict = None, cookies: dict = None):
@@ -25,6 +28,8 @@ class MyRequests():
         if cookies is None:
             cookies = {}
 
+        LG.add_request(url, data, headers, cookies, method)
+
         if method == 'GET':
             response = requests.get(url, params=data, headers=headers, cookies=cookies)
         elif method == 'POST':
@@ -35,4 +40,7 @@ class MyRequests():
             response = requests.delete(url, data=data, headers=headers, cookies=cookies)
         else:
             raise Exception(f"Bad HTTP method '{method} was received'")
+
+        LG.add_response(response)
+
         return response
