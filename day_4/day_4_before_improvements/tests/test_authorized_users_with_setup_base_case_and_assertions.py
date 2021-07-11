@@ -1,7 +1,7 @@
 import requests
 import pytest
-from day_3.lib.base_case import BaseCase
-from day_3.lib.assersions import Assertions as AS
+from day_4.day_4_before_improvements.lib.base_case import BaseCase
+from day_4.day_4_before_improvements.lib.assersions import Assertions as AS
 
 class TestUserAuth(BaseCase):
 
