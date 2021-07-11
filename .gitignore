@@ -1,6 +1,6 @@
 .idea
 .pytest_cache/
 __pycache__/
-/pytest_REST
-/day_4/day_4_improvements/logs/*
+/pytest_REST/
+/day_4/day_4_improvements/logs/
 /day_4/day_4_improvements/test_results/
