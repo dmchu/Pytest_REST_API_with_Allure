@@ -14,7 +14,6 @@ class TestUserEdit(BaseCase):
         AS.assert_code_status(response1, 200)
         AS.assert_json_has_key(response1, "id")
         user_email = register_data.get("email")
-        first_name = register_data.get("firstName")
         user_password = register_data.get("password")
         user_id = self.get_json_value(response1, "id")
 
@@ -46,8 +45,6 @@ class TestUserEdit(BaseCase):
 
         response3 = requests.put(URL2, headers=headers, cookies=cookies, data=edit_data)
         AS.assert_code_status(response3, 200)
-        # expected_fields = ["username", "email", "firstName", "lastName"]
-        # AS.assert_json_has_keys(response3, expected_fields)
 
         # Get updated user data
 

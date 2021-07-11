@@ -32,7 +32,7 @@ class TestUserAuth(BaseCase):
         AS.assert_json_value_by_name(response2, "user_id", self.user_id_from_auth_method, error_message)
 
     @pytest.mark.parametrize("condition", exclude_params)
-    def test_negative_auth_chech(self, condition):
+    def test_negative_auth_check(self, condition):
         if condition == "no_cookie":
             response2 = requests.get(self.URL2, headers=self.auth_headers)
         else:
