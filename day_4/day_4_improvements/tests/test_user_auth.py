@@ -1,8 +1,10 @@
 import pytest
+import allure
 from day_4.day_4_improvements.lib.base_case import BaseCase
 from day_4.day_4_improvements.lib.assersions import Assertions as AS
 from day_4.day_4_improvements.lib.my_requests import MyRequests as MR
 
+@allure.epic("Authorization cases")
 class TestUserAuth(BaseCase):
 
     exclude_params = [("no_cookie"), ("no_tocken")]
@@ -26,12 +28,13 @@ class TestUserAuth(BaseCase):
             "auth_sid": self.auth_sid
         }
 
-
+    @allure.description("Verifiying 'happy path' for user authentication by email and password")
     def test_auth_user(self):
         response2 = MR.get(self.URI2,headers=self.auth_headers, cookies=self.auth_cookies)
         error_message = "User id from auth method is not equal to user id from check method"
         AS.assert_json_value_by_name(response2, "user_id", self.user_id_from_auth_method, error_message)
 
+    @allure.description("Verifiying authorization without sending auth cookie or token")
     @pytest.mark.parametrize("condition", exclude_params)
     def test_negative_auth_check(self, condition):
         if condition == "no_cookie":
