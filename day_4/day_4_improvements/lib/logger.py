@@ -1,12 +1,11 @@
 from datetime import datetime as dt
 from decouple import config
-import os
 
 from requests import Response
 
 
 class Logger:
-    file_name = f"day_4/day_4_improvements/logs/log_" + str(dt.now()) + ".log"
+    file_name = f"day_4/day_4_improvements/logs/log_" + str(dt.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
 
     @classmethod
     def _write_log_to_file(cls, data: str):
@@ -15,7 +14,6 @@ class Logger:
 
     @classmethod
     def add_request(cls, url: str, data: dict, headers: dict, cookies: dict, method: str):
-        # test_name:str = os.environ.get("PYTEST_CURRENT_TEST")
         test_name:str = config("PYTEST_CURRENT_TEST")
 
         data_to_add = "\n-----\n"
