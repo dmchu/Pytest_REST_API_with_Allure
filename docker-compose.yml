@@ -3,9 +3,9 @@ version: "3"
 services:
   test_runner:
     build: .
-    image: pytest_runner
-    container_name: pytest_runner_works
+    image: pytest_runner_4
+    container_name: pytest_runner_works_2
     environment:
       - ENV=dev
     volumes:
-      - .:/test_results/day_4
+      - .:/tests_project/
