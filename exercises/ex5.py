@@ -5,7 +5,7 @@ json_text = '{"messages":[{"message":"This is the first message","timestamp":"20
 
 data = json.loads(json_text)
 
-second_message_1 = data["messages"][1]["message"]
+second_message_1 = data["messages"][0]["message"]
 second_message_2 = data.get("messages")[1]["message"]
 
 print(second_message_1)

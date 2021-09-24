@@ -2,6 +2,7 @@ import requests
 
 URL = "https://playground.learnqa.ru/api/long_redirect"
 
+
 response = requests.get(URL)
 
 all_urls = [response.history[i].url for i in range(len(response.history))]

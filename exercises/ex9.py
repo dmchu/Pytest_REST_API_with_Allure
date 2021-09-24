@@ -11,6 +11,7 @@ def get_all_passwords() -> List:
     get_passwords_response = requests.get(PASSWORDS_URL)
     soup = BeautifulSoup(get_passwords_response.text, "html.parser")
     dom = etree.HTML(str(soup))
+    print(dom)
     return [(password.text).strip() for password in dom.xpath(password_locator)]
 
 
