@@ -6,7 +6,7 @@ class TestFirstAPI:
         name = "Vitalik"
         data = {'name': name}
         response = requests.get(URL, params=data)
-        assert response.status_code == 200, "Wrong response code"
+        response.raise_for_status()
         response_dict = response.json()
         assert "answer" in response_dict, "There is no field 'answer' in the response"
 
