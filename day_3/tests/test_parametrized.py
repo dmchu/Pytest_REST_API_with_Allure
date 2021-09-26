@@ -1,15 +1,9 @@
 import requests
-import pytest
 
 class TestFirstAPI:
-    names = [
-        ("Vitaly"),
-        ("Arseniy"),
-        ("")
-    ]
 
-    @pytest.mark.parametrize('name', names)
-    def test_hello_call(self, name):
+    def test_hello_call(self, names):
+        name = names
         URL = "https://playground.learnqa.ru/api/hello"
         data = {'name': name}
         response = requests.get(URL, params=data)
