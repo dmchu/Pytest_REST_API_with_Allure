@@ -35,10 +35,9 @@ class TestUserAuth:
         assert user_id_from_auth_method == user_id_from_check_method,\
             "User id from auth method is not equal to user id from check method"
 
-    exclude_params = [("no_cookie"), ("no_tocken")]
 
-    @pytest.mark.parametrize("condition", exclude_params)
-    def test_negative_auth_chech(self, condition):
+    def test_negative_auth_chech(self, exclude_params):
+        condition = exclude_params
         URL1 = "https://playground.learnqa.ru/api/user/login"
         URL2 = "https://playground.learnqa.ru/api/user/auth"
 
