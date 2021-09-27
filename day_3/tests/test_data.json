@@ -1,5 +1,11 @@
-[
+{
+  "names" : [
   "Vitaly",
   "Arseniy",
   ""
-]
+],
+  "exclude_params": [
+    "no_cookie",
+    "no_tocken"
+  ]
+}
