@@ -1,9 +1,6 @@
 import requests
-import pytest
 
 class TestUserAuth:
-
-    exclude_params = [("no_cookie"), ("no_tocken")]
 
     def setup(self):
         self.URL1 = "https://playground.learnqa.ru/api/user/login"
@@ -37,9 +34,8 @@ class TestUserAuth:
             "User id from auth method is not equal to user id from check method"
 
 
-
-    @pytest.mark.parametrize("condition", exclude_params)
-    def test_negative_auth_check(self, condition):
+    def test_negative_auth_check(self, exclude_params):
+        condition = exclude_params
         if condition == "no_cookie":
             response2 = requests.get(self.URL2, headers=self.auth_headers)
         else:
